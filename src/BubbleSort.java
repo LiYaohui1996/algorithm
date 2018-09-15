@@ -16,16 +16,18 @@ public class BubbleSort {
             System.out.print(a[i]+"  ");
         }
 
-        for(int i=0;i<a.length;i++){
-            int temp=a[i];
-            for(int j=a.length-1;j>i;j--){
-                if(a[i]>a[j]){
-                    a[i]=a[j];
-                    a[j]=temp;
-                    temp=a[i];
-                }
+        for(int i=0;i<a.length-1;i++){
+            int temp;
+            for(int j=0;j<a.length-1-i;j++){
+                //这里-i主要是每遍历一次都把最大的i个数沉到最底下去了，没有必要再替换了
+               if (a[j]>a[j+1]){
+                   temp = a[j];
+                   a[j] = a[j+1];
+                   a[j+1] =temp;
+               }
             }
         }
+
 
         System.out.println();
         System.out.println("排序之后：");
