@@ -26,10 +26,8 @@ public class DirectInsertionSort {
             for (j=i-1;j>=0;j--){
                 if(a[j]>temp){
                     a[j+1]=a[j];
-                }else {
+                }else  break ;
 
-                    break ;
-                }
             }
             a[j+1]=temp;
 

@@ -36,11 +36,23 @@ public class ArrayForJava {
         if(index<1 ||getLength()<index ){
              return false;
         }
-        Node deleteNode = firstNode;
-        for(int i=1;i<index;i++){
-            deleteNode = deleteNode.next;
-
+        if(index==1){
+            firstNode = firstNode.next;
+            return true;
         }
+        int i=2;
+        Node preNode = firstNode;
+        Node curNode = preNode.next;
+        while (curNode !=null){
+            if(i ==index){
+                preNode.next = curNode.next;
+                return true;
+            }
+            preNode = curNode;
+            curNode = curNode.next;
+            i++;
+        }
+
         return true;
     }
 
@@ -71,6 +83,10 @@ public class ArrayForJava {
         array.addNote(6);
         array.addNote(7);
         array.addNote(8);
+        array.showList();
+
+        boolean aa= array.deleteNote(3);
+        System.out.println("444"+aa);
         array.showList();
     }
 }
